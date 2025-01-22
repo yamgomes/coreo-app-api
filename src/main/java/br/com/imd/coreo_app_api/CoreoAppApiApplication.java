@@ -1,4 +1,4 @@
-package br.edu.ufrn.coreo_app_api;
+package br.com.imd.coreo_app_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

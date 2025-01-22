@@ -1,4 +1,4 @@
-package br.edu.ufrn.coreo_app_api;
+package br.com.imd.coreo_app_api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
