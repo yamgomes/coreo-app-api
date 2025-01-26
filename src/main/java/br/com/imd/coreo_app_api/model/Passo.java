@@ -3,14 +3,14 @@ package br.com.imd.coreo_app_api.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Step {
+public class Passo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String description;
 
-    private int order;
+    private Integer ordem;
 
     @ManyToOne
     @JoinColumn(name = "coreography_id")

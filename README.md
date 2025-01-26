@@ -34,25 +34,25 @@ O projeto segue a arquitetura padrão do Spring Boot:
 src/main/java/com/example/coreographyapi
 ├── CoreographyApiApplication.java
 ├── controller
-│   ├── UserController.java
+│   ├── UsuarioController.java
 │   └── CoreographyController.java
 ├── model
-│   ├── User.java
+│   ├── Usuario.java
 │   ├── Coreography.java
-│   └── Step.java
+│   └── Passo.java
 ├── repository
-│   ├── UserRepository.java
+│   ├── UsuarioRepository.java
 │   ├── CoreographyRepository.java
-│   └── StepRepository.java
+│   └── PassoRepository.java
 ```
 
 ## Endpoints Disponíveis
 
-### Usuários (`/users`)
+### Usuários (`/usuarios`)
 
-- **GET `/users`**: Lista todos os usuários.
-- **POST `/users`**: Cria um novo usuário.
-- **GET `/users/{id}`**: Retorna um usuário pelo ID.
+- **GET `/usuarios`**: Lista todos os usuários.
+- **POST `/usuarios`**: Cria um novo usuário.
+- **GET `/usuarios/{id}`**: Retorna um usuário pelo ID.
 
 ### Coreografias (`/coreographies`)
 
@@ -80,7 +80,7 @@ A API usa o banco de dados em memória H2 para testes. Você pode acessar o cons
 
 - URL: [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
 - JDBC URL: `jdbc:h2:mem:testdb`
-- Username: `sa`
+- Usuarioname: `sa`
 - Password: (vazio)
 
 ## Melhorias Futuras

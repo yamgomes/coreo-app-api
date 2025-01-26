@@ -11,20 +11,20 @@ public class CoreographyApiApplication {
     }
 }
 
-// User model
+// Usuario model
 package com.example.coreographyapi.model;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class User {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
+    private String usuarioname;
 
     private String email;
 
@@ -33,14 +33,14 @@ public class User {
 
     @ManyToMany
     @JoinTable(
-        name = "user_followers",
-        joinColumns = @JoinColumn(name = "user_id"),
+        name = "usuario_followers",
+        joinColumns = @JoinColumn(name = "usuario_id"),
         inverseJoinColumns = @JoinColumn(name = "follower_id")
     )
-    private List<User> followers;
+    private List<Usuario> followers;
 
     @ManyToMany(mappedBy = "followers")
-    private List<User> following;
+    private List<Usuario> following;
 
     // Getters and Setters
 }
@@ -62,23 +62,23 @@ public class Coreography {
 
     @ManyToOne
     @JoinColumn(name = "creator_id")
-    private User creator;
+    private Usuario creator;
 
     @OneToMany(mappedBy = "coreography", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Step> steps;
+    private List<Passo> passos;
 
     private boolean isPublic;
 
     // Getters and Setters
 }
 
-// Step model
+// Passo model
 package com.example.coreographyapi.model;
 
 import javax.persistence.*;
 
 @Entity
-public class Step {
+public class Passo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -95,13 +95,13 @@ public class Step {
     // Getters and Setters
 }
 
-// UserRepository
+// UsuarioRepository
 package com.example.coreographyapi.repository;
 
-import com.example.coreographyapi.model.User;
+import com.example.coreographyapi.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 }
 
 // CoreographyRepository
@@ -113,45 +113,45 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface CoreographyRepository extends JpaRepository<Coreography, Long> {
 }
 
-// StepRepository
+// PassoRepository
 package com.example.coreographyapi.repository;
 
-import com.example.coreographyapi.model.Step;
+import com.example.coreographyapi.model.Passo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface StepRepository extends JpaRepository<Step, Long> {
+public interface PassoRepository extends JpaRepository<Passo, Long> {
 }
 
-// UserController
+// UsuarioController
 package com.example.coreographyapi.controller;
 
-import com.example.coreographyapi.model.User;
-import com.example.coreographyapi.repository.UserRepository;
+import com.example.coreographyapi.model.Usuario;
+import com.example.coreographyapi.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/usuarios")
+public class UsuarioController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UsuarioRepository usuarioRepository;
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<Usuario> getAllUsuarios() {
+        return usuarioRepository.findAll();
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userRepository.save(user);
+    public Usuario createUsuario(@RequestBody Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userRepository.findById(id).orElse(null);
+    public Usuario getUsuarioById(@PathVariable Long id) {
+        return usuarioRepository.findById(id).orElse(null);
     }
 }
 

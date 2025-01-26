@@ -8,16 +8,16 @@ import java.util.List;
 public class Coreography {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String title;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     @OneToMany(mappedBy = "coreography", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Step> steps;
+    private List<Passo> passos;
 
     private boolean isPublic;
 

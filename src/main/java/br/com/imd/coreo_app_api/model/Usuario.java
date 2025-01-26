@@ -6,26 +6,26 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class User {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String username;
+    private String usuarioname;
     private String email;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Coreography> coreographies;
 
     @ManyToMany
     @JoinTable(
-            name = "user_followers",
-            joinColumns = @JoinColumn(name = "user_id"),
+            name = "usuario_followers",
+            joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "follow_id")
     )
 
-    private List<User> followers;
+    private List<Usuario> followers;
 
     @ManyToMany(mappedBy = "followers")
-    private List<User> following;
+    private List<Usuario> following;
 }
