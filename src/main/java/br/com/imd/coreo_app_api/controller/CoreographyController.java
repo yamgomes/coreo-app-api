@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.imd.coreo_app_api.model.Coreography;
 import br.com.imd.coreo_app_api.service.PassoService;
+import br.com.imd.coreo_app_api.service.CoreographyService;
 
 @RestController
 @RequestMapping("/coreographies")
 public class CoreographyController {
 
     @Autowired
-    private PassoService coreographyService;
+    private CoreographyService coreographyService;
 
     @PostMapping
     public ResponseEntity<Coreography> createCoreography(@RequestBody Coreography coreography) {
