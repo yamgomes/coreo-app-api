@@ -2,6 +2,8 @@
 
 Coreography API é uma aplicação desenvolvida em Java usando Spring Boot, que permite gerenciar usuários, coreografias e passos ordenados. Os usuários podem criar, editar e seguir coreografias, com a possibilidade de explorar recursos como feed social e edição de coreografias existentes.
 
+Feito por JOAO VICTOR SOARES OLIVEIRA, MATHEUS DE ANDRADE SILVA e YAM GOMES DA CUNHA
+
 ## Funcionalidades Principais
 
 - **Gerenciamento de Usuários**:
